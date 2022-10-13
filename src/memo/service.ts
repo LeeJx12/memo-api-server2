@@ -1,16 +1,14 @@
 import { Knex } from "knex";
-import { knex } from "knexfile";
+import { getConnection } from "../server/db/connection";
 
 export class MemoService {
     connection: Knex.QueryBuilder;
 
     constructor() {
-        this.connection = knex('memo');
+        this.connection = getConnection('memo');
     }
 
     listMemo = () => {
-        return new Promise((resolve, reject) => {
-            resolve(this.connection.select('*'));
-        })
+        return this.connection.select('*');
     }
 }

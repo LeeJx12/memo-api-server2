@@ -22,11 +22,10 @@ export default class MemoController {
         return this.router;
     }
 
-    listMemo = (ctx: Context) => {
-        this.service.listMemo()
-            .then(memoList => {
-                ctx.body = memoList;
-            })
+    listMemo = async (ctx: Context) => {
+        const memoList = await this.service.listMemo() || [];
+
+        ctx.body = JSON.stringify(memoList);
     }
 
     getMemo = (ctx: Context) => {

@@ -11,4 +11,9 @@ export class MemoService {
     listMemo = () => {
         return this.connection.select('*');
     }
+
+    getMemo = (memoId: string) => {
+        return this.connection.select('*')
+                    .where('memoId', memoId)
+    }
 }

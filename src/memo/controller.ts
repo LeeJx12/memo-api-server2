@@ -1,6 +1,8 @@
 import Router from "koa-router";
 import { Context } from "koa";
 import { MemoService } from "./service";
+import { setModel } from "../common/functions";
+import { Memo } from "./model";
 
 export default class MemoController {
     router: Router;
@@ -23,7 +25,8 @@ export default class MemoController {
     }
 
     listMemo = async (ctx: Context) => {
-        const memoList = await this.service.listMemo() || [];
+        let memoList = await this.service.listMemo() || [];
+        memoList = setModel(memoList, Memo);
 
         ctx.body = JSON.stringify(memoList);
     }

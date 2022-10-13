@@ -10,6 +10,8 @@ exports.up = function(knex) {
     table.text('memo').notNullable();
     table.string('userId').notNullable();
     table.string('writerName');
+    table.timestamp('createDate');
+    table.timestamp('updateDate');
   })
 };
 

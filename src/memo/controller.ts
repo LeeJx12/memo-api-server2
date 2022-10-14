@@ -4,7 +4,7 @@ import { MemoService } from "./service";
 import { setModel, setModels } from "../common/functions";
 import { Memo, MemoNotFoundException, WriterNotMatchedException } from "./model";
 import { v4 as uuid } from 'uuid';
-import { SessionExpiredException } from "src/common/model";
+import { SessionExpiredException } from "../common/model";
 
 export default class MemoController {
     router: Router;

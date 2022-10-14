@@ -1,5 +1,5 @@
 import { Knex } from "knex";
-import { knex } from "knexfile";
+import { knex } from "../../knexfile";
 import { getConnection } from "../server/db/connection";
 import { Memo } from "./model";
 
